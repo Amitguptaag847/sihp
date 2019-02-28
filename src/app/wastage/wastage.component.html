@@ -1,0 +1,65 @@
+
+<div class="card mt-2">
+    <div class="card-header bg-info text-light">
+      Primary Input
+    </div>
+    <div class="card-body">
+        <form (ngSubmit)="onExtractFromDxf($event)">
+            <div class="row primary-input">
+                <div class="col-3">
+                    <div class="form-group">
+                        <select class="form-control" name="material" (change)="selectMaterial($event.target)">
+                            <option value="unknown">Unknown Material</option>
+                            <option *ngFor="let material of materials; let i = index;" [value]="i">{{ material.name }}</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Cost per cm2 (optional)" name="cost_per_unit_area">
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Material Density in g/cm3" name="density" [(ngModel)]="density">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Material Thickness in mm" name="thickness">
+                    </div>
+                </div>
+                <div class="col-3 text-center">
+                    <div class="form-group">
+                        <label for="file-upload" class="w-100 btn btn-primary m-0">
+                        Select DXF File
+                        </label>
+                        <input id="file-upload" type="file" name="dxf_file"/>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit"  class="w-100 btn btn-primary m-0" value="Extract From DXF">
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-6" [hidden]="!showOutput">
+        <div class="card mt-2">
+            <div class="card-header bg-info text-light">
+                Output
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col">
+                        <canvas width="250px" height="250px" id="pieChart"></canvas>
+                    </div>
+                    <div class="col">
+                        <p>Input Material Area: 2000</p>
+                        <p>Total Unused Area: 600</p>
+                        <p>Efficiency(%): 80%</p>
+                        <button class="btn btn-primary">Export as pdf</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

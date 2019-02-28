@@ -1,0 +1,15 @@
+.list-group-item {
+    border-radius: 0px;
+    text-decoration: none;
+    color: white;
+    background-color: rgb(0, 76, 103);
+}
+.active {
+    background-color: rgb(0, 146, 206);
+    border: 0px;
+    color:white;
+}
+.list-group-item:hover:not(.active){
+    background-color: #DADBDD;
+    color: black;
+}

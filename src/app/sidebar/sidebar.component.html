@@ -1,0 +1,5 @@
+<div class="list-group">
+    <a routerLink="/wastage" class="list-group-item active" (click)="getActiveTab('wastage')" [class.active]="activetab === 'wastage'">Calculate Wastage</a>
+    <a routerLink="/materials" class="list-group-item" (click)="getActiveTab('materials')" [class.active]="activetab === 'materials'">Materials</a>
+    <a routerLink="/history" class="list-group-item" (click)="getActiveTab('history')" [class.active]="activetab === 'history'">History</a>
+</div>
